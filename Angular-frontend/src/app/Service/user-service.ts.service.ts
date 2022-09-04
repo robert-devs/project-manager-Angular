@@ -14,4 +14,7 @@ export class UserService {
   fetchUser(): Observable<any> {
     return this.http.get<any>(`${this.BASE_URL}/users`);
   }
+  getUserProject(id: string) {
+    return this.http.get(`${this.BASE_URL}/projects/assigned/${id}`);
+  }
 }

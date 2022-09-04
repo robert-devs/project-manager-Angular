@@ -1,8 +1,6 @@
 <div class="form-wrapper">
   <h2>Add Project</h2>
-  <form class="form form-shadow"
-   (ngSubmit)="add()"
-  >
+  <form class="form form-shadow" [formGroup]="addForm" (ngSubmit)="add()">
     <label> name*</label>
     <input type="text" id="create_name" name="name" formControlName="name" />
 

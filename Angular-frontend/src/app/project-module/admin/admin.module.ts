@@ -6,6 +6,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminComponent } from './admin.component';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // import { ProjectsComponent } from './projects/projects.component';
 const routes: Routes = [
@@ -33,6 +34,8 @@ const routes: Routes = [
     //
     RouterModule.forChild(routes),
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class AdminModule {}

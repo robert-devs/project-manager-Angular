@@ -11,8 +11,15 @@ export class UserProjectsComponent implements OnInit {
   projects: IUser[] = [];
   constructor(private userservice: UserService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getUserProject();
+  }
   update(id: string) {
     this.userservice;
+  }
+  getUserProject() {
+    this.userservice.fetchUser().subscribe((res) => {
+      return (this.getUserProject = res.getUser);
+    });
   }
 }
