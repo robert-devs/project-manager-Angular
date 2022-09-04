@@ -1,0 +1,21 @@
+.container {
+  background-color: rgb(240, 246, 240);
+}
+
+.card {
+  font-size: 30px;
+  display: flex;
+  // background-color: cyan;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: 1024px;
+  margin: auto;
+  width: 100%;
+}
+
+.right {
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  gap: 2rem;
+}

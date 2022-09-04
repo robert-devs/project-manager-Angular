@@ -1,0 +1,62 @@
+<div class="container">
+  <form
+    style="display: none"
+    class="form"
+    [formGroup]="addForms"
+    (ngSubmit)="registerUser()"
+  >
+    <h1>Sign Up</h1>
+    <label> Name*</label>
+    <input type="text" id="register_name" name="name" formControlName="Name" />
+
+    <label> Username*</label>
+    <input
+      type="text"
+      id="register_username"
+      name="username"
+      formControlName="Username"
+    />
+    <div
+      *ngIf="
+        !addForms.get('username')!.valid && addForms.get('username')!.touched
+      "
+    >
+      <p class="error" *ngIf="addForms.get('username')!.errors!['required']">
+        *Name is required.
+      </p>
+    </div>
+
+    <label> Email*</label>
+    <input
+      type="text"
+      id="register_email"
+      name="email"
+      formControlName="Email"
+    />
+    <div
+      *ngIf="!addForms.get('email')!.valid && addForms.get('username')!.touched"
+    >
+      <p class="error" *ngIf="addForms.get('email')!.errors!['required']">
+        please enter a email
+      </p>
+      <p
+        class="error"
+        *ngIf="addForms.get('email')!.errors!['unallowedEmails']"
+      >
+        unallowedemail email
+      </p>
+    </div>
+
+    <label> Password*</label>
+    <input
+      type="password"
+      id="register_password"
+      name="password"
+      formControlName="Password"
+    />
+
+    <button id="register" type="submit">Register</button>
+    <p>or</p>
+    <button type="button" class="show-login-btn">Login Here</button>
+  </form>
+</div>

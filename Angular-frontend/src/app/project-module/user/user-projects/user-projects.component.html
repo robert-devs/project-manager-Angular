@@ -1,0 +1,23 @@
+<div>
+  <h2>welcome</h2>
+  <br />
+  <table>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>description</th>
+      <th>duedate</th>
+      <th></th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let Project; for: projects">
+        <td>{{ Project.id }}</td>
+        <td>{{ Project.Name }}</td>
+        <td>{{ Project.description }}</td>
+        <td>{{ Project.duedate }}</td>
+        <td><button (click)="update(Project.id)">udates</button></td>
+        <td style="text-align: center" colspan="234">No Project Available</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

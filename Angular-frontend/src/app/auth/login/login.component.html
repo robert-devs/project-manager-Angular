@@ -1,0 +1,32 @@
+<div class="card">
+  <form #form="ngForm" (ngSubmit)="onSubmit()">
+    <p>{{ errorMessage }}</p>
+
+    <h3>Login</h3>
+
+    <div>
+      <label for="email">email*</label>
+      <input
+        ngModel
+        type="email"
+        placeholder="email"
+        required="email"
+        #username="ngModel"
+        name="email"
+      />
+    </div>
+
+    <div>
+      <label for="password">Password*</label>
+      <input
+        #password="ngModel"
+        ngModel
+        name="password"
+        type="password"
+        required
+      />
+    </div>
+
+    <button type="submit">login</button>
+  </form>
+</div>

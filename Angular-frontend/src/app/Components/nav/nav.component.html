@@ -1,0 +1,25 @@
+<div appBackground class="container">
+  <div class="card">
+    <div class="Project">
+      <h4>Project master</h4>
+    </div>
+
+    <div>
+      <ul class="right">
+        <li routerLink="/">Home</li>
+        <li
+          routerLink="/admin/dashboard"
+          routerLinkActive="active"
+          *ngIf="autthservice.isLoggedIn()"
+        >
+          Admin
+        </li>
+        <li routerLink="!authService.isLoggedin()">Users</li>
+        <li routerLink="!userservice.isLoggedin()">Login</li>
+        <li routerLink="userservice.isLoggedin()" (click)="logoutUser()">
+          Logout
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
