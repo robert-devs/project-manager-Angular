@@ -6,7 +6,7 @@ import { Ilogin, IUser } from '../interfaces/userInterface';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthServicesService {
+export class AuthService {
   readonly BASE_URL = 'http://localhost:5000';
   httpOptions: { headers: HttpHeaders; observe: string };
 
@@ -17,10 +17,10 @@ export class AuthServicesService {
     };
   }
   registerUser(data: IUser) {
-    return this.http.post<any>(this.BASE_URL + 'login/', data);
+    return this.http.post<any>(this.BASE_URL + '/users/login/', data);
   }
   loginUser(data: Ilogin): Observable<any> {
-    return this.http.post<any>(this.BASE_URL + 'login/', data);
+    return this.http.post<any>(this.BASE_URL + '/users/login/', data);
   }
   getUsers(): Observable<IUser[]> {
     return this.http.get<IUser[]>(this.BASE_URL + '/users');

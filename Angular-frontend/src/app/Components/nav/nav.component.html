@@ -1,25 +1,22 @@
-<div appBackground class="container">
-  <div class="card">
-    <div class="Project">
-      <h4>Project master</h4>
-    </div>
-
-    <div>
-      <ul class="right">
-        <li routerLink="/">Home</li>
-        <li
-          routerLink="/admin/dashboard"
-          routerLinkActive="active"
-          *ngIf="autthservice.isLoggedIn()"
-        >
-          Admin
+<nav class="navbar navbar-expand-lg bg-light py-4">
+  <div class="container-fluid max-width">
+    <a class="navbar-brand" routerLink="/">Project Master</a>
+    <div class="collapse d-flex justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
         </li>
-        <li routerLink="!authService.isLoggedin()">Users</li>
-        <li routerLink="!userservice.isLoggedin()">Login</li>
-        <li routerLink="userservice.isLoggedin()" (click)="logoutUser()">
-          Logout
+        <li *ngIf="!authservice.isLoggedIn()" class="nav-item">
+          <a
+            class="nav-link btn btn-success text-white px-4"
+            routerLink="/auth/login"
+            >Login</a
+          >
+        </li>
+        <li *ngIf="authservice.isLoggedIn()">
+          <button (click)="logoutUser()" class="btn btn-warning">Logout</button>
         </li>
       </ul>
     </div>
   </div>
-</div>
+</nav>

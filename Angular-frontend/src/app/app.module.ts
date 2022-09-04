@@ -10,26 +10,17 @@ import { HomeComponent } from './Components/home/home.component';
 import { AdminModule } from './project-module/admin/admin.module';
 import { UserModule } from './project-module/user/user.module';
 import { NavComponent } from './Components/nav/nav.component';
-
-// import { AddProjectComponent } from './project-module/admin/add-project/add-project.component';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-
-    HomeComponent,
-
-    NavComponent,
-    // AddProjectComponent,
-  ],
+  declarations: [AppComponent, HomeComponent, NavComponent, NotFoundComponent],
 
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    AdminModule,
-    UserModule,
     ReactiveFormsModule,
   ],
   providers: [],

@@ -1,0 +1,84 @@
+<div class="form-wrapper">
+  <form
+    class="form form-shadow"
+    [formGroup]="addForms"
+    (ngSubmit)="registerUser()"
+  >
+    <h3 class="text-center">Sign Up</h3>
+    <hr class="my-4" />
+
+    <div class="form-group">
+      <label class="form-label"> Name*</label>
+      <input
+        class="form-control"
+        type="text"
+        name="name"
+        formControlName="name"
+      />
+    </div>
+
+    <div class="form-grou mt-3">
+      <label> Username*</label>
+      <input
+        class="form-control mt-2"
+        type="text"
+        name="username"
+        formControlName="username"
+      />
+      <div
+        *ngIf="
+          !addForms.get('username')!.valid && addForms.get('username')!.touched
+        "
+      >
+        <p class="error" *ngIf="addForms.get('username')!.errors!['required']">
+          *Name is required.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label> Email*</label>
+      <input
+        class="form-control mt-2"
+        type="text"
+        id="register_email"
+        name="email"
+        formControlName="email"
+      />
+      <div
+        *ngIf="
+          !addForms.get('email')!.valid && addForms.get('username')!.touched
+        "
+      >
+        <p class="error" *ngIf="addForms.get('email')!.errors!['required']">
+          please enter a email
+        </p>
+        <p
+          class="error"
+          *ngIf="addForms.get('email')!.errors!['unallowedEmails']"
+        >
+          unallowedemail email
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label> Password*</label>
+      <input
+        type="password"
+        id="register_password"
+        name="password"
+        class="form-control mt-2"
+        formControlName="password"
+      />
+    </div>
+
+    <div class="d-grid mt-4">
+      <button class="btn btn-primary" type="submit">Register</button>
+    </div>
+    <p class="text-center mt-4">OR</p>
+    <p class="text-center">
+      <a routerLink="/auth/login">Login Here</a>
+    </p>
+  </form>
+</div>

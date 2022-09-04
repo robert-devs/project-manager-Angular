@@ -9,7 +9,7 @@ import {
 import { Router } from '@angular/router';
 
 import { IUser } from 'src/app/interfaces/userInterface';
-import { RegisterService } from 'src/app/Service/register.service';
+import { AuthService } from 'src/app/Service/auth-services.service';
 
 @Component({
   selector: 'app-register-user',
@@ -18,11 +18,13 @@ import { RegisterService } from 'src/app/Service/register.service';
 })
 export class RegisterUserComponent implements OnInit {
   addForms!: FormGroup;
+
   allowedEmails = ['@thejitu.com'];
   Success = false;
+  errorMessage: string = '';
   constructor(
     private FB: FormBuilder,
-    private registerServices: RegisterService,
+    private authService: AuthService,
     private router: Router
   ) {}
 
@@ -39,12 +41,13 @@ export class RegisterUserComponent implements OnInit {
     });
   }
   registerUser() {
+    this.errorMessage = '';
     if (this.addForms.valid) {
       const newRegistration: IUser = this.addForms.value;
-      this.registerServices.RegisterUser(newRegistration).subscribe((res) => {
+      this.authService.registerUser(newRegistration).subscribe((res) => {
         this.Success = true;
         if (this.Success) {
-          // this.router.navigate(['auth/login']);
+          this.router.navigate(['auth/register']);
         } else {
           alert('user rigistering failed registered');
         }

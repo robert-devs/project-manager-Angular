@@ -9,6 +9,7 @@ import { UserProjectService } from 'src/app/Service/user-project.service';
 })
 export class ProjectsComponent implements OnInit {
   projects: Iprojects[] = [];
+
   constructor(private projectService: UserProjectService) {}
 
   ngOnInit(): void {
@@ -16,10 +17,10 @@ export class ProjectsComponent implements OnInit {
   }
   allProject() {
     this.projectService.getProjects().subscribe((res) => {
-      this.projects = res;
+      this.projects = res.projects;
     });
   }
-  onDelete(id: string) {
+  onDelete(id: string = '') {
     this.projectService.deleteProject(id).subscribe((res) => {
       this.allProject();
     });

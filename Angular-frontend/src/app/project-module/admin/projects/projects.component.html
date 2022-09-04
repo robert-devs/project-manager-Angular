@@ -1,26 +1,28 @@
-<div class="container">
-  <main>
-    <table>
-      <h1>Projects...</h1>
-      <br />
-      <tr>
-        <th>name</th>
-        <th>Description</th>
-        <th>User</th>
-        <th>Due Date</th>
-        <th></th>
-      </tr>
-      <tr *ngFor="let project of projects">
-        <td>{{ project.pname }}</td>
-        <td>{{ project.description }}</td>
-        <td>{{ project.uname }}</td>
-        <td>{{ project.duedate }}</td>
-        <td>
-          <button (click)="onDelete(project.id)" class="updateProject">
-            delete
-          </button>
-        </td>
-      </tr>
-    </table>
-  </main>
-</div>
+<h1>Projects</h1>
+
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">User</th>
+      <th scope="col">Due Date</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ project.pname }}</td>
+      <td>{{ project.description }}</td>
+      <td>{{ project.uname }}</td>
+      <td>{{ project.duedate }}</td>
+      <td>
+        <button (click)="onDelete(project.id)" class="btn btn-sm btn-danger">
+          delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

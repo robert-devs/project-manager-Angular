@@ -1,7 +1,8 @@
-<div class="container">
-  form action="" style="display: none;" id="add-project-form">
+<div class="form-wrapper">
   <h2>Add Project</h2>
-  <form style="display: none" class="form">
+  <form class="form form-shadow"
+   (ngSubmit)="add()"
+  >
     <label> name*</label>
     <input type="text" id="create_name" name="name" formControlName="name" />
 
@@ -25,7 +26,6 @@
       formControlName="DueDate"
     />
 
-    <button>Submit</button>
+    <button class="btn btn-primary">Submit</button>
   </form>
-  rm>
 </div>

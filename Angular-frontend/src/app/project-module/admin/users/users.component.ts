@@ -4,6 +4,7 @@ import {
   IUser,
   UserInterface,
 } from 'src/app/interfaces/userInterface';
+import { UserService } from 'src/app/Service/user-service.ts.service';
 
 @Component({
   selector: 'app-users',
@@ -11,8 +12,15 @@ import {
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
-  User!: UserInterface[];
-  constructor() {}
+  users!: UserInterface[];
+  constructor(private userservice: UserService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fetchUser();
+  }
+  fetchUser() {
+    this.userservice.fetchUser().subscribe((res) => {
+      this.users = res.users;
+    });
+  }
 }

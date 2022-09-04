@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthServicesService } from 'src/app/Service/auth-services.service';
-import { UserService } from 'src/app/Service/user-service.ts.service';
+import { AuthService } from 'src/app/Service/auth-services.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,10 +8,7 @@ import { UserService } from 'src/app/Service/user-service.ts.service';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
-  constructor(
-    public autthservice: AuthServicesService,
-    private router: Router
-  ) {}
+  constructor(public authservice: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
   isLoggedin() {
@@ -20,7 +16,7 @@ export class NavComponent implements OnInit {
   }
 
   logoutUser() {
-    this.router.navigate(['/']);
-    this.autthservice.logoutUser();
+    this.router.navigate(['/auth/login']);
+    this.authservice.logoutUser();
   }
 }
